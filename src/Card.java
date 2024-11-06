@@ -15,7 +15,7 @@ private BufferedImage cardFront;
 private BufferedImage cardBack;
 private int level;
 
-public Card(int points, String s, int l, HashMap<Token, Integer> p, BufferedImage cf, BufferedImaged cb) {
+public Card(int points, String s, int l, HashMap<Token, Integer> p, BufferedImage cf,) {
 this.points = points;
 suite = s;
 level = l;
