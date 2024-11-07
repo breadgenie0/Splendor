@@ -1,7 +1,7 @@
 public Player
 {
     private String playerName;
-    private HashMap<Token, Integer> tokens;
+    private HashMap<String, Integer> tokens;
     private ArrayList<Card> cards;
     private ArrayList<Card> heldCards;
     private ArrayList<Patron> patrons;

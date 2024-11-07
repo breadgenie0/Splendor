@@ -9,7 +9,7 @@ import java.io.*;
 
 public class Card {
 private int points;
-private HashMap<Token, Integer> price;
+private HashMap<String, Integer> price;
 private String suite;
 private BufferedImage cardFront;
 private BufferedImage cardBack;
@@ -25,8 +25,8 @@ price = getPrice(p);
 
 }
 
-public HashMap<Token, Integer> getPrice(int[] p){
-    HashMap<Token, Integer> priceMap = new HashMap<>();
+public HashMap<String, Integer> getPrice(int[] p){
+    HashMap<String, Integer> priceMap = new HashMap<>();
     priceMap.put("WI", p[0]);
     priceMap.put("BL", p[1]);
     priceMap.put("GR", p[2]);
