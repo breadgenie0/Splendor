@@ -15,7 +15,7 @@ private BufferedImage cardFront;
 private BufferedImage cardBack;
 private int level;
 
-public Card(int points, String s, int l, HashMap<Token, Integer> p, BufferedImage cf,) {
+public Card(int points, String s, int l, int[] p, BufferedImage cf,) {
 this.points = points;
 suite = s;
 level = l;
@@ -24,6 +24,9 @@ cardFront = cf;
 cardBack = cb;
 }
 
+public HashMap<Token, Integer> getPrice(int[] p){
+    
+}
 public HashMap getPrice(){
     return price;
 }
