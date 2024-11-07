@@ -11,5 +11,8 @@ public class Token {
 	public String getSuite() {
 		return suite;
 	}
+	public BufferedImage getImage(){
+		return image;
+	}
 
 }

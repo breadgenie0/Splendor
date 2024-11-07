@@ -10,4 +10,10 @@ public class GameState {
     private Card CurrentCard;
     private int tokenCounter;
 
+    public GameState(){
+        players = new Player[];
+        playerTurn = 0;
+        
+    }
+
 }
