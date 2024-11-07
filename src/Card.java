@@ -19,7 +19,7 @@ public Card(int points, String s, int l, int[] p, BufferedImage cf,) {
 this.points = points;
 suite = s;
 level = l;
-price = p;
+//price = p;
 cardFront = cf;
 price = getPrice(p);
 

@@ -1,4 +1,4 @@
-public Player
+public class Player
 {
     private String playerName;
     private HashMap<String, Integer> tokens;
@@ -49,5 +49,10 @@ public Player
     public int getScore()
     {
         return points;
+    }
+
+    public Token[] getTokens()
+    {
+        return tokens;
     }
 }

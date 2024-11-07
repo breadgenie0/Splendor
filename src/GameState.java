@@ -2,7 +2,7 @@ import java.util.*;
 
 public class GameState {
     private int playerTurn;
-    private HashMap<Token, Integer> totalTokens;
+    private HashMap<String, Integer> totalTokens;
     private Player[] players;
     private TreeMap<Integer, Card[]> cards;
     private ArrayList<Patron> patrons;
@@ -13,7 +13,7 @@ public class GameState {
     public GameState(){
         players = new Player[];
         playerTurn = 0;
-        
+        totalTokens = 
     }
 
 }
