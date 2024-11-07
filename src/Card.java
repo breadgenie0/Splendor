@@ -21,11 +21,18 @@ suite = s;
 level = l;
 price = p;
 cardFront = cf;
-cardBack = cb;
+price = getPrice(p);
+
 }
 
 public HashMap<Token, Integer> getPrice(int[] p){
-    
+    HashMap<Token, Integer> priceMap = new HashMap<>();
+    priceMap.put("WI", p[0]);
+    priceMap.put("BL", p[1]);
+    priceMap.put("GR", p[2]);
+    priceMap.put("RE", p[3]);
+    priceMap.put("BK", p[4]);
+    return priceMap;
 }
 public HashMap getPrice(){
     return price;

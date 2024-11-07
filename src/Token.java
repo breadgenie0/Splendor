@@ -4,9 +4,9 @@ public class Token {
 	private String suite;
 	private BufferedImage image;
 	
-	public Token(String s, BufferedImage b) {
+	//suites = WI, BL, GR, RE, BK in that order
+	public Token(String s) {
 		suite = s;
-		image = b;
 	}
 	public String getSuite() {
 		return suite;
