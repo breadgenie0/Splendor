@@ -59,4 +59,9 @@ public class GameState {
         return totalTokens.get(color);
     }
 
+    public boolean buyCard(Card c){
+        
+
+    }
+
 }
