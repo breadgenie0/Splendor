@@ -37,6 +37,9 @@ public HashMap<String, Integer> getPrice(int[] p){
 public HashMap getPrice(){
     return price;
 }
+public int getPrice(String color){
+    return price.get(color);
+}
 public int getPoints() {
 return points;
 }

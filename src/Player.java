@@ -7,9 +7,8 @@ public class Player
     private ArrayList<Patron> patrons;
     private int points;
 
-    public Player(String name)
+    public Player()
     {
-        playerName = name;
         tokens = new HashMap<Token, Integer>();
         cards = new ArrayList<Card>();
         patrons = new ArrayList<Patron>();
