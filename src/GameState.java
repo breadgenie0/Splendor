@@ -17,6 +17,7 @@ public class GameState {
         }
         playerTurn = 0;
         totalTokens = new HashMap<>();
+        tokenCounter = 0;
         initializeTokens();
         createDeck();
         drawFour();
@@ -62,6 +63,12 @@ public class GameState {
     public boolean buyCard(Card c){
         
 
+    }
+
+    public boolean takeToken(String color){
+        if(tokenCounter <= 3){
+            players[playerTurn].addToken(new Token(color));
+        }
     }
 
 }
