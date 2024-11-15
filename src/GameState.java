@@ -1,10 +1,12 @@
+package testingagain;
+
 import java.util.*;
 
 public class GameState {
     private int playerTurn;
     private HashMap<String, Integer> totalTokens;
     private Player[] players;
-    private TreeMap<Integer, Card[]> cards;
+    private Map<Integer, Card[]> cards;
     private ArrayList<Patron> patrons;
     private Map<Integer, ArrayList<Card>> deck;
     private Card CurrentCard;
@@ -18,7 +20,7 @@ public class GameState {
         playerTurn = 0;
         totalTokens = new HashMap<>();
         tokenCounter = 0;
-        initializeTokens();
+        //initializeTokens();
         createDeck();
         drawFour();
         patrons = new ArrayList<Patron>();
@@ -36,6 +38,12 @@ public class GameState {
     }
     
     public void createDeck(){
+    	
+    	
+    	cards = new TreeMap<Integer, Card[]>();
+    	for(int i = 1; i <= 3; i++) {
+    		cards.put(i, new Card[4]);
+    	}
 
     }
 
@@ -47,7 +55,9 @@ public class GameState {
             ArrayList<Card> tempCardList = deck.get(i+1);
             for(int j = 0; j < 4; j++){
                 Card c = tempCardList.get(tempCardList.size() - j - 1);
-                cards.put(i+1, c);
+                Card[] temp = cards.get(i+1);
+                temp[j] = c;
+                
             }
         }
     }
