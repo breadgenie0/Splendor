@@ -7,9 +7,9 @@ import javax.swing.*;
 import java.io.*;
 
 public class GameState {
-    private int playerTurn;
-    private HashMap<String, Integer> totalTokens;
-    private Player[] players;
+    public int playerTurn;
+    public HashMap<String, Integer> totalTokens;
+    public Player[] players;
     public Map<Integer, Card[]> cards;
     public ArrayList<Patron> patrons;
     public ArrayList<Card> deck1, deck2, deck3;
@@ -24,7 +24,7 @@ public class GameState {
         playerTurn = 0;
         totalTokens = new HashMap<>();
         tokenCounter = 0;
-        //initializeTokens();
+        initizalizeTokens();
         createDeck();
         drawFour();
         patrons = new ArrayList<Patron>();
