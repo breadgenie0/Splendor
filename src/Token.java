@@ -1,3 +1,4 @@
+
 import java.awt.image.BufferedImage;
 
 public class Token {
@@ -5,14 +6,18 @@ public class Token {
 	private BufferedImage image;
 	
 	//suites = WI, BL, GR, RE, BK in that order
-	public Token(String s) {
+	public Token(String s, BufferedImage img) {
 		suite = s;
+		image = img;
 	}
-	public String getSuite() {
+	public String suite() {
 		return suite;
 	}
 	public BufferedImage getImage(){
 		return image;
+	}
+	public String toString() {
+		return suite;
 	}
 
 }
