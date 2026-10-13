@@ -61,10 +61,102 @@ public class GameState {
 		deck1 = new ArrayList<>();
 		deck2 = new ArrayList<>();
 		deck3 = new ArrayList<>();
-		BufferedReader sc = new BufferedReader(new FileReader("cards.txt"));
+		InputStream inputstream = getClass().getResourceAsStream("/cardImages/cards.txt");
+		//File f = new File(getClass().getResource("C:\\Users\\Karen\\OneDrive - Katy Independent School District\\Karen Wang Comp Sci DS\\Splendor\\bin\\cardImages\\cards.txt").getFile());
+
+		Scanner sc = new Scanner("1_WI_1_0,0,4,0,0\r\n"
+				+ "0_WI_1_3,1,0,0,1\r\n"
+				+ "0_WI_1_0,3,0,0,0\r\n"
+				+ "0_WI_1_0,2,2,0,1\r\n"
+				+ "0_WI_1_0,2,0,0,2\r\n"
+				+ "0_WI_1_0,1,2,1,1\r\n"
+				+ "0_WI_1_0,1,1,1,1\r\n"
+				+ "0_WI_1_0,0,0,2,1\r\n"
+				+ "0_RE_1_3,0,0,0,0\r\n"
+				+ "0_RE_1_2,1,1,0,1\r\n"
+				+ "0_RE_1_2,0,0,2,0\r\n"
+				+ "0_RE_1_1,1,1,0,1\r\n"
+				+ "0_RE_1_1,0,1,0,2\r\n"
+				+ "0_RE_1_1,0,0,1,3\r\n"
+				+ "0_RE_1_1,0,0,1,3\r\n"
+				+ "0_RE_1_0,2,1,0,0\r\n"
+				+ "1_GR_1_0,0,0,0,4\r\n"
+				+ "0_GR_1_2,1,0,0,0\r\n"
+				+ "0_GR_1_1,3,1,0,0\r\n"
+				+ "0_GR_1_1,1,0,1,2\r\n"
+				+ "0_GR_1_1,1,0,1,1\r\n"
+				+ "0_GR_1_0,2,0,2,0\r\n"
+				+ "0_GR_1_0,1,0,2,2\r\n"
+				+ "0_GR_1_0,0,0,3,0\r\n"
+				+ "1_BL_1_0,0,0,4,0\r\n"
+				+ "0_BL_1_1,0,2,2,0\r\n"
+				+ "0_BL_1_1,0,1,2,1\r\n"
+				+ "0_BL_1_1,0,1,1,1\r\n"
+				+ "0_BL_1_1,0,0,0,2\r\n"
+				+ "0_BL_1_0,1,3,1,0\r\n"
+				+ "0_BL_1_0,0,2,0,2\r\n"
+				+ "0_BL_1_0,0,0,0,3\r\n"
+				+ "1_BK_1_0,4,0,0,0\r\n"
+				+ "0_BK_1_2,2,0,1,0\r\n"
+				+ "0_BK_1_2,0,2,0,0\r\n"
+				+ "0_BK_1_1,2,1,1,0\r\n"
+				+ "0_BK_1_1,1,1,1,0\r\n"
+				+ "0_BK_1_0,0,3,0,0\r\n"
+				+ "0_BK_1_0,0,2,1,0\r\n"
+				+ "0_BK_1_0,0,1,3,1\r\n"
+				+ "3_WI_2_6,0,0,0,0\r\n"
+				+ "2_WI_2_0,0,1,4,2\r\n"
+				+ "2_WI_2_0,0,0,5,3\r\n"
+				+ "2_WI_2_0,0,0,5,0\r\n"
+				+ "1_WI_2_2,3,0,3,0\r\n"
+				+ "1_WI_2_0,0,3,2,2\r\n"
+				+ "3_RE_2_0,0,0,6,0\r\n"
+				+ "2_RE_2_3,0,0,0,5\r\n"
+				+ "2_RE_2_1,4,2,0,0\r\n"
+				+ "2_RE_2_0,0,0,0,5\r\n"
+				+ "1_RE_2_2,0,0,2,3\r\n"
+				+ "1_RE_2_0,3,0,2,3\r\n"
+				+ "3_GR_2_0,0,6,0,0\r\n"
+				+ "2_GR_2_4,2,0,0,1\r\n"
+				+ "2_GR_2_0,5,3,0,0\r\n"
+				+ "2_GR_2_0,0,5,0,0\r\n"
+				+ "1_GR_2_3,0,2,3,0\r\n"
+				+ "1_GR_2_2,3,0,0,2\r\n"
+				+ "3_BL_2_0,6,0,0,0\r\n"
+				+ "2_BL_2_5,3,0,0,0\r\n"
+				+ "2_BL_2_2,0,0,1,4\r\n"
+				+ "2_BL_2_0,5,0,0,0\r\n"
+				+ "1_BL_2_0,2,2,3,0\r\n"
+				+ "1_BL_2_0,2,3,0,3\r\n"
+				+ "3_BK_2_0,0,0,0,6\r\n"
+				+ "2_BK_2_5,0,0,0,0\r\n"
+				+ "2_BK_2_0,1,4,2,0\r\n"
+				+ "2_BK_2_0,0,5,3,0\r\n"
+				+ "1_BK_2_3,2,2,0,0\r\n"
+				+ "1_BK_2_3,0,3,0,2\r\n"
+				+ "5_WI_3_3,0,0,0,7\r\n"
+				+ "4_WI_3_3,0,0,3,6\r\n"
+				+ "4_WI_3_0,0,0,0,7\r\n"
+				+ "3_WI_3_0,3,3,5,3\r\n"
+				+ "5_RE_3_0,0,7,3,0\r\n"
+				+ "4_RE_3_0,3,6,3,0\r\n"
+				+ "4_RE_3_0,0,7,0,0\r\n"
+				+ "3_RE_3_3,5,3,0,3\r\n"
+				+ "5_GR_3_0,7,3,0,0\r\n"
+				+ "4_GR_3_3,6,3,0,0\r\n"
+				+ "4_GR_3_0,7,0,0,0\r\n"
+				+ "3_GR_3_5,3,0,3,3\r\n"
+				+ "5_BL_3_7,3,0,0,0\r\n"
+				+ "4_BL_3_7,0,0,0,0\r\n"
+				+ "4_BL_3_6,3,0,0,3\r\n"
+				+ "3_BL_3_3,0,3,3,5\r\n"
+				+ "5_BK_3_0,0,0,7,3\r\n"
+				+ "4_BK_3_0,0,3,6,3\r\n"
+				+ "4_BK_3_0,0,0,7,0\r\n"
+				+ "3_BK_3_3,3,5,3,0");
 		String k;
-		while ((k = sc.readLine()) != null) {
-			String nextLine = k;
+		while (sc.hasNext()) {
+			String nextLine = sc.nextLine();
 			System.out.println(nextLine);
 			String filename = "/cardImages/" + nextLine + ".png";
 			System.out.println(filename);
@@ -115,7 +207,16 @@ public class GameState {
 	// randomly select 5 patrons at the beginning of the game
 	public void selectPatrons() throws IOException {
 		ArrayList<Patron> allPatrons = new ArrayList<>();
-		Scanner sc = new Scanner(new File("patrons.txt"));
+		Scanner sc = new Scanner("0,0,0,4,4\r\n"
+				+ "0,0,3,3,3\r\n"
+				+ "0,0,4,4,0\r\n"
+				+ "0,3,3,3,0\r\n"
+				+ "0,4,4,0,0\r\n"
+				+ "3,0,0,3,3\r\n"
+				+ "3,3,0,0,3\r\n"
+				+ "3,3,3,0,0\r\n"
+				+ "4,0,0,0,4\r\n"
+				+ "4,4,0,0,0\r\n");
 		while (sc.hasNextLine()) {
 			String x = sc.nextLine();
 			String filename = "/patronImages/" + x + ".png";
@@ -194,7 +295,7 @@ public class GameState {
 		totalTokens.put(color, totalTokens.get(color) - 1);
 		players[playerTurn].addToken(color);
 		tokenCounter++;
-		if (tokenCounter == 3 || (tokenCounter == 2 && availableTokenColors)) {
+		if (tokenCounter == 3 || (tokenCounter == 2 && availableTokenColors) || totalTokenSize() == 0) {
 			tokenLimit();
 			if (extraTokens != 0) {
 				return false;
@@ -214,6 +315,16 @@ public class GameState {
 		if (count == 2) {
 			availableTokenColors = true;
 		}
+	}
+	
+	public int totalTokenSize() {
+		int count = 0;
+		for(String s : totalTokens.keySet()) {
+			if(!s.equals("YE")) {
+				count += totalTokens.get(s);
+			}
+		}
+		return count;
 	}
 	// player tries to hold a card
 	public boolean holdCard(Card c) {
@@ -278,6 +389,24 @@ public class GameState {
 		}
 		return null;
 	}
+	public boolean enoughTokens() {
+		if(requiredTokens!= null) {
+			int wild = players[playerTurn].getTokens("YE");
+			int count = 0;
+			for(String x : requiredTokens.keySet()) {
+				if(requiredTokens.get(x) - players[playerTurn].getTokens(x) > wild) {
+					return false;
+				}else if (requiredTokens.get(x) > players[playerTurn].getTokens(x)) {
+					count++;
+				}
+			}
+			if(count > wild) {
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
 	public boolean buyCard(Card c) {
 		cardtobuy = c;
 		requiredTokens = (HashMap) c.getPrice().clone();
@@ -316,6 +445,8 @@ public class GameState {
 	// method player uses to pay
 	public boolean pay(String s) {
 		// need something to check if the token is wild token and what to do
+		if(enoughTokens()) {
+			
 		if (requiredTokens.containsKey(s) && requiredTokens.get(s) > 0) {
 			requiredTokens.put(s, requiredTokens.get(s) - 1);
 			players[playerTurn].removeToken(s);
@@ -338,8 +469,11 @@ public class GameState {
 			return false;
 		}
 		return true;
+		}
+		return false;
 	}
 	public boolean payWild(String s) {
+		//if(enoughTokens()) {
 		// need something to check if the token is wild token and what to do
 		if (requiredTokens.containsKey(s) && requiredTokens.get(s) > 0) {
 			requiredTokens.put(s, requiredTokens.get(s) - 1);
@@ -361,6 +495,7 @@ public class GameState {
 			return false;
 		}
 		return true;
+		
 	}
 	// puts tokens back to the center
 	public void returnToken(String s) {
