@@ -14,11 +14,11 @@ public class Navigation extends JPanel implements MouseListener {
 	
 	public Navigation() {
 		try{
-			pg1 = ImageIO.read(new File("navigation1.png"));
-			pg2 = ImageIO.read(new File("navigation2.png"));
-			pg3 = ImageIO.read(new File("navigation3.png"));
-			nextbtn = ImageIO.read(new File("nextbtn.png"));
-			startbtn = ImageIO.read(new File("startgamebtn.png"));
+			pg1 = ImageIO.read(Navigation.class.getResource("/images/navigation1.png"));
+			pg2 = ImageIO.read(Navigation.class.getResource("/images/navigation2.png"));
+			pg3 = ImageIO.read(Navigation.class.getResource("/images/navigation3.png"));
+			nextbtn = ImageIO.read(Navigation.class.getResource("/images/nextbtn.png"));
+			startbtn = ImageIO.read(Navigation.class.getResource("/images/startgamebtn.png"));
 			page = 1;
 		}catch(Exception E) {
 			System.out.println("Navigation error");
