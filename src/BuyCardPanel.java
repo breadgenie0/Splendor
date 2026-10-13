@@ -19,7 +19,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 
 public class BuyCardPanel extends JPanel implements MouseListener {
-	private BufferedImage background, backbtn, cardframe, cardboughtsign, useWild, choosepatron;
+	private BufferedImage background, backbtn, cardframe, cardboughtsign, useWild, choosepatron, notenough;
 	private ArrayList<Token> tokens;
 	private GameState gamestate;
 	private boolean cardbought;
@@ -28,13 +28,14 @@ public class BuyCardPanel extends JPanel implements MouseListener {
 		try {
 			gamestate = g;
 			currentplayer = gamestate.players[gamestate.playerTurn];
-			background = ImageIO.read(new File("playerviewbg.png"));
-			backbtn = ImageIO.read(new File("backbtn.png"));
-			cardframe = ImageIO.read(new File("cardframe.png"));
-			cardboughtsign = ImageIO.read(new File("cardbought.png"));
+			background = ImageIO.read(BuyCardPanel.class.getResource("/images/playerviewbg.png"));
+			backbtn = ImageIO.read(BuyCardPanel.class.getResource("/images/backbtn.png"));
+			cardframe = ImageIO.read(BuyCardPanel.class.getResource("/images/cardframe.png"));
+			cardboughtsign = ImageIO.read(BuyCardPanel.class.getResource("/images/cardbought.png"));
 			System.out.println(3);
-			useWild = ImageIO.read(new File("useWild.png"));
-			choosepatron = ImageIO.read(new File("choosepatron.png"));		
+			useWild = ImageIO.read(BuyCardPanel.class.getResource("/images/useWild.png"));
+			choosepatron = ImageIO.read(BuyCardPanel.class.getResource("/images/choosepatron.png"));
+			notenough = ImageIO.read(BuyCardPanel.class.getResource("images/notenough.png"));
 			tokens = new ArrayList<>();
 			tokens.add(new Token("RE", ImageIO.read(MainPanel.class.getResource("/tokenImages/redToken.png"))));
 			tokens.add(new Token("BL", ImageIO.read(MainPanel.class.getResource("/tokenImages/blueToken.png"))));
@@ -140,7 +141,11 @@ public class BuyCardPanel extends JPanel implements MouseListener {
 					}
 				}
 			}
+			if(!gamestate.enoughTokens()) {
+				g.drawImage(notenough, 0, 0, getWidth(), getHeight(), null);
+			}
 		}
+		
 		if(gamestate.multiplepatrons) {
 			g.drawImage(choosepatron, getWidth() / 12, getHeight() * 25 / 108, getWidth() * 25 / 96,
 					getHeight() * 143 / 540, null );
@@ -292,7 +297,7 @@ public class BuyCardPanel extends JPanel implements MouseListener {
 			{	
 				int lt = getHeight() * 5 / 54 + getHeight() * 5 / 36 * (i + 1);
 				int lb = lt + wid;
-				if(x >= lx && x <= rx && y >= lt && y <= lb && gamestate.requiredTokens.get(tokens.get(i).suite()) != null && gamestate.requiredTokens.get(tokens.get(i).suite()) >0)
+				if(x >= lx && x <= rx && y >= lt && y <= lb && gamestate.requiredTokens.get(tokens.get(i).suite()) != null && gamestate.requiredTokens.get(tokens.get(i).suite()) >0 && gamestate.enoughTokens())
 				{
 					currentplayer.removeToken("YE");
 					return tokens.get(i).suite();
