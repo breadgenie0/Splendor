@@ -25,19 +25,19 @@ public class MainPanel extends JPanel implements MouseListener {
 		try {
 			gamestate = g;
 			// gamestate.players[gamestate.playerTurn].addPoints(14);
-			background = ImageIO.read(new File("background.png"));
-			buycardbtn = ImageIO.read(new File("buycardbtn.png"));
+			background = ImageIO.read(MainPanel.class.getResource("/images/background.png"));
+			buycardbtn = ImageIO.read(MainPanel.class.getResource("/images/buycardbtn.png"));
 			holdcard = "";
-			holdcardbtn = ImageIO.read(new File("holdcardbtn.png"));
-			String x = "0_BK_1_0,0,1,3,1.png";
-			exampleCard = ImageIO.read(new File(x));
-			vpbg = ImageIO.read(new File("victory point background.png"));
+			holdcardbtn = ImageIO.read(MainPanel.class.getResource("/images/holdcardbtn.png"));
+			//String x = "0_BK_1_0,0,1,3,1.png";
+			//exampleCard = ImageIO.read(new File(x));
+			vpbg = ImageIO.read(MainPanel.class.getResource("/images/victory point background.png"));
 			// uploading cardback images
 			cardbacks = new BufferedImage[3];
-			tokenlimit = ImageIO.read(new File("tokenlimit.png"));
+			tokenlimit = ImageIO.read(MainPanel.class.getResource("/images/tokenlimit.png"));
 			for (int i = 1; i <= 3; i++) {
-				String name = "level" + i + "cardback.jpg";
-				cardbacks[i - 1] = ImageIO.read(new File(name));
+				String name = "/images/level" + i + "cardback.jpg";
+				cardbacks[i - 1] = ImageIO.read(MainPanel.class.getResource(name));
 			}
 			// uploading token images
 			tokens = new ArrayList<>();
@@ -119,10 +119,17 @@ public class MainPanel extends JPanel implements MouseListener {
 				Player paintingPlayer = gamestate.players[2 * i + j];
 				// draws the hold cards of each player starting from top left
 				for (int k = 0; k < paintingPlayer.heldCards().size(); k++) {
+					if(2 * i + j == gamestate.playerTurn) {
+						g.drawImage(paintingPlayer.heldCards().get(k).getFront(),
+								getWidth() * 23 / 640 * k + getWidth() * 5 / 64 + getWidth() * 150 / 192 * j,
+								getHeight() * 5 / 54 + getHeight() * 25 / 54 * i, getWidth() / 32, getHeight() * 19 / 270,
+								null);
+					}else {
 					g.drawImage(cardbacks[paintingPlayer.heldCards().get(k).level() - 1],
 							getWidth() * 23 / 640 * k + getWidth() * 5 / 64 + getWidth() * 150 / 192 * j,
 							getHeight() * 5 / 54 + getHeight() * 25 / 54 * i, getWidth() / 32, getHeight() * 19 / 270,
 							null);
+					}
 				}
 				// draws patrons
 				for(int a = 0; a < paintingPlayer.patrons().size(); a++) {
@@ -268,9 +275,14 @@ public class MainPanel extends JPanel implements MouseListener {
 			}
 		}
 		for (int i = 1; i <= 3; i++) {
-			if( x >= getWidth() * 23 / 64 && x <= getWidth() * 23 / 64 + getWidth() * 9 / 160 && y >= getHeight() / 6 + getHeight() * 19 / 135 * i + (getHeight() / 72 * (i - 1)) && y <= getHeight() / 6 + getHeight() * 19 / 135 * i + (getHeight() / 72 * (i - 1)) + getHeight() * 19 / 135) 
+			if( x >= getWidth() * 23 / 64 && x <= getWidth() * 23 / 64 + getWidth() * 9 / 160 && y >= getHeight() / 6 + getHeight() * 19 / 135 * i + (getHeight() / 72 * (i - 1)) && y <= getHeight() / 6 + getHeight() * 19 / 135 * i + (getHeight() / 72 * (i - 1)) + getHeight() * 19 / 135) { 
 			if(i == 1) 
-				c = gamestate.drawCard(3-i+1);
+				c = gamestate.drawCard(3);
+			if(i == 2) 
+				c = gamestate.drawCard(2);
+			if(i == 3) 
+				c = gamestate.drawCard(1);
+			}
 		}
 		
 		return c;
@@ -284,7 +296,7 @@ public class MainPanel extends JPanel implements MouseListener {
 			double rx = lx + radius;
 			double ry = ly + getHeight() / 36;
 			double distance = Math.sqrt(Math.pow(x - rx, 2) + Math.pow(y - ry, 2));
-			if (distance <= radius) {
+			if (distance <= radius && !holdcard.equals("SELECT A CARD TO HOLD")) {
 				return tokens.get(i).suite();
 			}
 		}
