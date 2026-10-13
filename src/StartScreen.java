@@ -18,9 +18,9 @@ private BufferedImage rulesButton;
     public StartScreen() {
           try {
               
-  				bg = ImageIO.read(new File("StartScreen.png"));
-  				startButton = ImageIO.read(new File("startbtn.png"));
-  				rulesButton = ImageIO.read(new File("rulesbtn.png"));
+  				bg = ImageIO.read(StartScreen.class.getResource("/images/StartScreen.png"));
+  				startButton = ImageIO.read(StartScreen.class.getResource("/images/startbtn.png"));
+  				rulesButton = ImageIO.read(StartScreen.class.getResource("/images/rulesbtn.png"));
           }
           catch(Exception E){
                 System.out.println("Exception error");
