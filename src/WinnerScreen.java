@@ -14,7 +14,7 @@ public class WinnerScreen extends JPanel {
 	
 	public WinnerScreen(GameState g) {
 		try {
-			bg = ImageIO.read(new File("winnerscreen.png"));
+			bg = ImageIO.read(WinnerScreen.class.getResource("/images/winnerscreen.png"));
 			gamestate = g;
 		}catch(Exception e) {
 			System.out.println("Error winner screen");
